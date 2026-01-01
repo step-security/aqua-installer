@@ -1,0 +1,8 @@
+---
+# aqua - Declarative CLI Version Manager
+registries:
+  - type: standard
+    ref: v4.432.0
+
+packages:
+  - name: suzuki-shunsuke/ghalint@v1.5.3
