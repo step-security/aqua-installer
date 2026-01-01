@@ -3,45 +3,6 @@ name: test (workflow_call)
 on: workflow_call
 permissions: {}
 jobs:
-  path-filter:
-    # Get changed files to filter jobs
-    timeout-minutes: 10
-    outputs:
-      update-aqua-checksums: ${{steps.changes.outputs.update-aqua-checksums}}
-      ghalint: ${{steps.changes.outputs.ghalint}}
-    runs-on: ubuntu-24.04
-    permissions: {}
-    steps:
-      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
-        id: changes
-        with:
-          filters: |
-            ghalint:
-              - .github/workflows/*.yaml
-              - aqua/ghalint.yaml
-
-  ghalint:
-    # Validate GitHub Actions Workflows by ghalint.
-    timeout-minutes: 20
-    needs: path-filter
-    if: needs.path-filter.outputs.ghalint == 'true'
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          persist-credentials: false
-      - uses: ./
-        with:
-          aqua_version: v2.56.1
-        env:
-          AQUA_GITHUB_TOKEN: ${{github.token}}
-      - run: ghalint run
-        env:
-          GHALINT_LOG_COLOR: always
-          AQUA_GITHUB_TOKEN: ${{github.token}}
-
   test-script:
     timeout-minutes: 20
     runs-on: ubuntu-24.04
