@@ -10,7 +10,7 @@ Install [aqua](https://aquaproj.github.io/) quickly.
 Install aqua with a single command:
 
 ```bash
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v4.0.2/aqua-installer | bash
+curl -sSfL https://raw.githubusercontent.com/step-security/aqua-installer/v4.0.2/aqua-installer | bash
 ```
 
 ### Secure Installation with Checksum Verification
@@ -18,7 +18,7 @@ curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v4.0.2/aqua
 For safer installation, verify the checksum before execution:
 
 ```bash
-curl -sSfL -O https://raw.githubusercontent.com/aquaproj/aqua-installer/v4.0.2/aqua-installer
+curl -sSfL -O https://raw.githubusercontent.com/step-security/aqua-installer/v4.0.2/aqua-installer
 echo "98b883756cdd0a6807a8c7623404bfc3bc169275ad9064dc23a6e24ad398f43d  aqua-installer" | sha256sum -c -
 chmod +x aqua-installer
 ./aqua-installer
@@ -38,7 +38,7 @@ chmod +x aqua-installer
 Example with version specification:
 
 ```bash
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v4.0.2/aqua-installer | bash -s -- -v v2.43.1
+curl -sSfL https://raw.githubusercontent.com/step-security/aqua-installer/v4.0.2/aqua-installer | bash -s -- -v v2.43.1
 ```
 
 ## GitHub Actions
