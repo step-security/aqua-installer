@@ -5,4 +5,4 @@ registries:
     ref: v4.432.0
 
 packages:
-  - name: suzuki-shunsuke/ghalint@f1d383e6e26e3efc3fd9655781796624c739c040
+  - name: suzuki-shunsuke/ghalint@v1.5.3
