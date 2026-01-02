@@ -57,9 +57,9 @@ runs:
           echo "Timeout or API not reachable. Continuing to next step."
         fi
       shell: bash
-      
+
     - run: |
-        echo "::error ::aqua_version is required. https://github.com/aquaproj/aqua-installer"
+        echo "::error ::aqua_version is required. https://github.com/step-security/aqua-installer"
         exit 1
       shell: bash
       if: inputs.aqua_version == ''
