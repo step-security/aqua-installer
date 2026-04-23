@@ -1,3 +1,5 @@
+[![StepSecurity Maintained Action](https://raw.githubusercontent.com/step-security/maintained-actions-assets/main/assets/maintained-action-banner.png)](https://docs.stepsecurity.io/actions/stepsecurity-maintained-actions)
+
 # aqua-installer
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/step-security/aqua-installer.svg)](https://github.com/step-security/aqua-installer)
