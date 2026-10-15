@@ -1,5 +1,5 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/v2.56.1/json-schema/aqua-yaml.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/v2.60.1/json-schema/aqua-yaml.json
 # aqua - Declarative CLI Version Manager
 # https://aquaproj.github.io/
 checksum:
@@ -9,4 +9,4 @@ registries:
   - type: standard
     ref: v4.432.0
 packages:
-  - name: suzuki-shunsuke/ghalint@v1.5.4
+  - name: suzuki-shunsuke/ghalint@v1.5.6

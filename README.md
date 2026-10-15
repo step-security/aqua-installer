@@ -2,9 +2,6 @@
 
 # aqua-installer
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/step-security/aqua-installer.svg)](https://github.com/step-security/aqua-installer)
-[![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://raw.githubusercontent.com/step-security/aqua-installer/main/LICENSE)
-
 Install [aqua](https://aquaproj.github.io/) quickly.
 
 ## Shell Script
@@ -111,6 +108,3 @@ While aqua-installer lacks built-in caching, you can cache packages using `actio
 aqua_opts: ""
 ```
 
-## License
-
-[MIT](LICENSE)
