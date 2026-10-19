@@ -1,5 +1,9 @@
 ---
+<<<<<<< 01b7b2a2dc12b4692bf8334c59448c2431cc66ee
 # yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/v2.56.1/json-schema/aqua-yaml.json
+=======
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/v2.64.0/json-schema/aqua-yaml.json
+>>>>>>> e814e182a7e7d575df72a2b2ac71c2ac0301b5f5
 # aqua - Declarative CLI Version Manager
 # https://aquaproj.github.io/
 checksum:
@@ -7,6 +11,14 @@ checksum:
   require_checksum: true
 registries:
   - type: standard
+<<<<<<< 01b7b2a2dc12b4692bf8334c59448c2431cc66ee
     ref: v4.432.0
 packages:
   - name: suzuki-shunsuke/ghalint@v1.5.4
+=======
+    ref: v4.572.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+  - name: suzuki-shunsuke/ghalint@v1.5.6
+  - name: suzuki-shunsuke/tfcmt@v4.14.19
+  - name: suzuki-shunsuke/pinact@v5.0.0
+>>>>>>> e814e182a7e7d575df72a2b2ac71c2ac0301b5f5
