@@ -5,17 +5,13 @@ permissions: {}
 jobs:
   test-script:
     timeout-minutes: 20
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@ccd8616d44fd3846e67624a50d5aad6d37bf2d25 # v2.22.1
         with:
           egress-policy: audit
 
-  test-script:
-    timeout-minutes: 20
-    runs-on: ubuntu-26.04
-    steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -59,7 +55,7 @@ jobs:
           persist-credentials: false
       - uses: ./
         with:
-          aqua_version: v2.56.1
+          aqua_version: v2.64.0
           working_directory: tests
       - run: command -v aqua
       - run: aqua -v
@@ -73,6 +69,11 @@ jobs:
     env:
       AQUA_DISABLE_LAZY_INSTALL: "true"
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@ccd8616d44fd3846e67624a50d5aad6d37bf2d25 # v2.22.1
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -104,7 +105,7 @@ jobs:
           persist-credentials: false
       - uses: ./
         with:
-          aqua_version: v2.56.1
+          aqua_version: v2.64.0
           working_directory: tests
       - run: command -v aqua
       - run: aqua -v
@@ -127,7 +128,7 @@ jobs:
           persist-credentials: false
       - uses: ./
         with:
-          aqua_version: v2.56.1
+          aqua_version: v2.64.0
           working_directory: tests
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -152,7 +153,7 @@ jobs:
           persist-credentials: false
       - uses: ./
         with:
-          aqua_version: v2.56.1
+          aqua_version: v2.64.0
       - run: command -v aqua
         shell: bash
       - run: aqua -v
@@ -180,7 +181,7 @@ jobs:
           persist-credentials: false
       - uses: ./
         with:
-          aqua_version: v2.56.1
+          aqua_version: v2.64.0
           working_directory: tests
 
       - run: command -v aqua
