@@ -1,0 +1,12 @@
+{
+  "$comment": "Managed automatically when syncing with upstream. Do not edit by hand.",
+  "schema_version": 1,
+  "onboarding_type": "copied",
+  "action_type": "composite",
+  "upstream": {
+    "repository": "aquaproj/aqua-installer",
+    "synced_tag": "v4.1.0",
+    "synced_commit": "82d0e83878a8657c4a6f2ff1755d3bfbfc67f329",
+    "archived": false
+  }
+}
