@@ -5,8 +5,8 @@
   "action_type": "composite",
   "upstream": {
     "repository": "aquaproj/aqua-installer",
-    "synced_tag": "v4.1.0",
-    "synced_commit": "82d0e83878a8657c4a6f2ff1755d3bfbfc67f329",
+    "synced_tag": "v4.1.2",
+    "synced_commit": "b8be739961814ee66b9e0d505f4d5de0d2eff047",
     "archived": false
   }
 }

@@ -51,13 +51,13 @@ done
 
 shift $((OPTIND - 1))
 
-bootstrap_version=v2.64.0
-checksums="64bc676871f2fe2683f57371e958963fc5a14b72b03e22b796fa228dcdeb353b  aqua_darwin_amd64.tar.gz
-f7f7890781bbd8863b04b61eb7bb40fe83add7097243c13da987ae9fb56d93b7  aqua_darwin_arm64.tar.gz
-b276e927ee2f4dc214831708c0843a91007bafa06f2f9fcd6ee1fd73fd165598  aqua_linux_amd64.tar.gz
-7cc2b859333f40ef52eb62a1be3bfaa34dcbc27ef1c8bdc5bfaea7787597bc18  aqua_linux_arm64.tar.gz
-7f8694f6181a01360633c27f8c9c4140d97f4b9d6fb244bad6b5bdfe8b2b7916  aqua_windows_amd64.zip
-7fe40a7a6b93cb4494700d39dcc01db9c59c22abd689890e71a6cf88290df3b7  aqua_windows_arm64.zip"
+bootstrap_version=v2.66.1
+checksums="c8fd624c6abfd7cb3ef5bbcd4e2e8e9c051d20bc6331892439e0089d14845636  aqua_darwin_amd64.tar.gz
+04f1cbd44817eab77c0645bd618d56be1c3787e74f28c35d7473b980b31a66fc  aqua_darwin_arm64.tar.gz
+1cd648c1835dcdfc60d935a169993f55551cfb948a0f5a442af5b51f2a28a8d1  aqua_linux_amd64.tar.gz
+27e964a036e5dde6cd31ee1d9b8e3f4244a0834877e492efb80a0aca0a9ac055  aqua_linux_arm64.tar.gz
+01cc31aac9245f9b90000fc82332497162a2182515a4c616a67d5def594ca8e0  aqua_windows_amd64.zip
+94bdbe1d095c1cd8414e7c7e5d1233856bee9cfa1858b6023769bc2adfe4d6a1  aqua_windows_arm64.zip"
 
 filename=aqua_${OS}_${ARCH}.tar.gz
 if [ "$OS" = windows ]; then
@@ -68,9 +68,16 @@ URL=https://github.com/aquaproj/aqua/releases/download/$bootstrap_version/$filen
 tempdir=$(mktemp -d)
 echo "[INFO] Installing aqua $bootstrap_version for bootstrapping..." >&2
 echo "[INFO] Downloading $URL ..." >&2
-if command -v curl > /dev/null 2>&1; then
-	curl --retry 5 --fail -L "$URL" -o "$tempdir/$filename"
-elif command -v wget > /dev/null 2>&1; then
+if command -v curl >/dev/null 2>&1; then
+	# --retry alone retries only errors curl considers transient, which leaves out
+	# a 403 GitHub sometimes returns for a release asset.
+	# --retry-all-errors needs curl 7.71.0 or later.
+	curl_opts=(--retry 5 --fail -L)
+	if curl --help all 2>/dev/null | grep -q -- --retry-all-errors; then
+		curl_opts+=(--retry-all-errors)
+	fi
+	curl "${curl_opts[@]}" "$URL" -o "$tempdir/$filename"
+elif command -v wget >/dev/null 2>&1; then
 	wget -P "$tempdir" "$URL"
 else
 	echo "[ERROR] Neither curl nor wget is found. Please install either curl or wget to download aqua" >&2
