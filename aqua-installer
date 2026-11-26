@@ -68,11 +68,6 @@ URL=https://github.com/aquaproj/aqua/releases/download/$bootstrap_version/$filen
 tempdir=$(mktemp -d)
 echo "[INFO] Installing aqua $bootstrap_version for bootstrapping..." >&2
 echo "[INFO] Downloading $URL ..." >&2
-<<<<<<< 280ad13dcbf8d95c03597ca8de9733a986d80fb9
-if command -v curl > /dev/null 2>&1; then
-	curl --retry 5 --fail -L "$URL" -o "$tempdir/$filename"
-elif command -v wget > /dev/null 2>&1; then
-=======
 if command -v curl >/dev/null 2>&1; then
 	# --retry alone retries only errors curl considers transient, which leaves out
 	# a 403 GitHub sometimes returns for a release asset.
@@ -83,7 +78,6 @@ if command -v curl >/dev/null 2>&1; then
 	fi
 	curl "${curl_opts[@]}" "$URL" -o "$tempdir/$filename"
 elif command -v wget >/dev/null 2>&1; then
->>>>>>> 905ee35f9a78ad04074e950d52cd790ce702fb48
 	wget -P "$tempdir" "$URL"
 else
 	echo "[ERROR] Neither curl nor wget is found. Please install either curl or wget to download aqua" >&2
